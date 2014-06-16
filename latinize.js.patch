@@ -1,0 +1,24 @@
+--- lib/latinize/latinize.js	2014-06-16 12:39:56.243302187 +0100
++++ build/latinize.js	2014-06-16 12:55:47.661569756 +0100
+@@ -1,13 +1,4 @@
+-
+-(function (factory) {
+-    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined' && typeof require !== 'undefined') {
+-        // CommonJS
+-        module.exports = factory();
+-    } else {
+-        // running in browser
+-        window.latinize = factory();
+-    }
+-})(function() {
++latinize = (function() {
+ 
+ function latinize(str) {
+     return str.replace(/[^A-Za-z0-9]/g, function(x) { return latin_map[x] || x; });
+@@ -841,4 +832,4 @@
+ };
+ 
+ return latinize;
+-});
+\ No newline at end of file
++})();

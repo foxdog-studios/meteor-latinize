@@ -4,6 +4,6 @@ Package.describe({
 
 Package.on_use(function (api) {
   api.add_files(['build/latinize.js'],['client', 'server']);
-  api.export(['THREE'], ['client']);
+  api.export(['latinize'], ['client', 'server']);
 });
 

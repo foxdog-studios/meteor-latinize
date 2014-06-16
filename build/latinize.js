@@ -1,13 +1,4 @@
-
-(function (factory) {
-    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined' && typeof require !== 'undefined') {
-        // CommonJS
-        module.exports = factory();
-    } else {
-        // running in browser
-        window.latinize = factory();
-    }
-})(function() {
+latinize = (function() {
 
 function latinize(str) {
     return str.replace(/[^A-Za-z0-9]/g, function(x) { return latin_map[x] || x; });
@@ -841,4 +832,4 @@ var latin_map = {
 };
 
 return latinize;
-});
+})();

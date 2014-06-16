@@ -3,15 +3,13 @@
 setopt ERR_EXIT
 setopt NO_UNSET
 
-sources=(
-    'lib/latinize/latinize.js'
-)
-
 repo=$(realpath "$(dirname "$(realpath -- $0)")/..")
-build_dir=$repo/build
-rm --force --recursive --verbose $build_dir
-mkdir --parents $build_dir
-for source in $sources; do
-    cp --verbose $source $build_dir
-done
+
+src=lib/latinize/latinize.js
+dst=$repo/build/$src:t
+
+mkdir --parents --verbose $dst:h
+rm --force --recursive --verbose $dst
+cp --verbose $src $dst
+patch $dst < $repo/${src:t}.patch
 
